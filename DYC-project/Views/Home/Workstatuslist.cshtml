@@ -1,0 +1,43 @@
+﻿@model IEnumerable<DYC_project.WorkResult>
+
+@{
+    ViewBag.Title = "Workstatuslist";
+}
+
+<h2>Workstatuslist</h2>
+
+<p>
+    @Html.ActionLink("logout","addcomplain")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ComplainId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ComplainDetails)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ComplainId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ComplainDetails)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>
+        <td>
+            
+        </td>
+    </tr>
+}
+
+</table>

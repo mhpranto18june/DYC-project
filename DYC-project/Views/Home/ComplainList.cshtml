@@ -1,0 +1,62 @@
+﻿@model IEnumerable<DYC_project.complain>
+
+@{
+    ViewBag.Title = "ComplainList";
+}
+
+<h2>ComplainList</h2>
+
+<p>
+    @Html.ActionLink("logout", "logoutFromSSadmin")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ComplainType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ComplainDetails)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RoadNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Area)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ComplainerName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.complainerPhoneNumber)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ComplainType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ComplainDetails)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RoadNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Area)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ComplainerName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.complainerPhoneNumber)
+        </td>
+        <td>
+            @Html.ActionLink("AssignWorker", "AssignTask", new { id=item.Id }) |
+        
+        </td>
+    </tr>
+}
+
+</table>

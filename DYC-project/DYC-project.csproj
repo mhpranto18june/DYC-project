@@ -43,11 +43,49 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.1\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.0.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.0.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.0.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.0.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.0.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.0.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -89,19 +127,377 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\Database1.mdf" />
+    <Content Include="App_Data\Database1_log.ldf">
+      <DependentUpon>Database1.mdf</DependentUpon>
+    </Content>
+    <Content Include="AssignTaskModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AssignTaskModel.edmx</DependentUpon>
+      <LastGenOutput>AssignTaskModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="AssignTaskModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AssignTaskModel.edmx</DependentUpon>
+      <LastGenOutput>AssignTaskModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="ComplainModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ComplainModel.edmx</DependentUpon>
+      <LastGenOutput>ComplainModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="ComplainModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ComplainModel.edmx</DependentUpon>
+      <LastGenOutput>ComplainModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+    <Content Include="RegNewModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>RegNewModel.edmx</DependentUpon>
+      <LastGenOutput>RegNewModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="RegNewModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>RegNewModel.edmx</DependentUpon>
+      <LastGenOutput>RegNewModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="SAdminMyModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SAdminMyModel.edmx</DependentUpon>
+      <LastGenOutput>SAdminMyModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="SAdminMyModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SAdminMyModel.edmx</DependentUpon>
+      <LastGenOutput>SAdminMyModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="scripts\ai.0.22.9-build00167.js" />
+    <Content Include="scripts\ai.0.22.9-build00167.min.js" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="TaskModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TaskModel.edmx</DependentUpon>
+      <LastGenOutput>TaskModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="TaskModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TaskModel.edmx</DependentUpon>
+      <LastGenOutput>TaskModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="UserRegModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>UserRegModel.edmx</DependentUpon>
+      <LastGenOutput>UserRegModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="UserRegModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>UserRegModel.edmx</DependentUpon>
+      <LastGenOutput>UserRegModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="WebForm1.aspx" />
+    <Content Include="WorkersAdminModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WorkersAdminModel.edmx</DependentUpon>
+      <LastGenOutput>WorkersAdminModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="WorkersAdminModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WorkersAdminModel.edmx</DependentUpon>
+      <LastGenOutput>WorkersAdminModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="WorkStatusModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WorkStatusModel.edmx</DependentUpon>
+      <LastGenOutput>WorkStatusModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="WorkStatusModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WorkStatusModel.edmx</DependentUpon>
+      <LastGenOutput>WorkStatusModel.cs</LastGenOutput>
+    </Content>
+    <EntityDeploy Include="SAdminMyModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>SAdminMyModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="SAdminMyModel.edmx.diagram">
+      <DependentUpon>SAdminMyModel.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="AssignTaskModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>AssignTaskModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="AssignTaskModel.edmx.diagram">
+      <DependentUpon>AssignTaskModel.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="RegNewModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>RegNewModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="RegNewModel.edmx.diagram">
+      <DependentUpon>RegNewModel.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
+    <None Include="scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="scripts\bootstrap.js" />
+    <Content Include="scripts\bootstrap.min.js" />
+    <Content Include="scripts\jquery-1.10.2.js" />
+    <Content Include="scripts\jquery-1.10.2.min.js" />
+    <None Include="scripts\jquery.validate-vsdoc.js" />
+    <Content Include="scripts\jquery.validate.js" />
+    <Content Include="scripts\jquery.validate.min.js" />
+    <Content Include="scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="scripts\modernizr-2.6.2.js" />
     <Content Include="Web.config" />
+    <Content Include="Views\Home\ComplainList.cshtml" />
+    <Content Include="Views\Home\login.cshtml" />
+    <Content Include="Views\Home\AssignTask.cshtml" />
+    <Content Include="Views\Home\AssigningWorklist.cshtml" />
+    <EntityDeploy Include="WorkersAdminModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>WorkersAdminModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="WorkersAdminModel.edmx.diagram">
+      <DependentUpon>WorkersAdminModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Views\Home\WorkerAdminLogin.cshtml" />
+    <Content Include="Views\Home\logout.cshtml" />
+    <Content Include="Views\Home\logoutFromSSadmin.cshtml" />
+    <EntityDeploy Include="WorkStatusModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>WorkStatusModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="WorkStatusModel.edmx.diagram">
+      <DependentUpon>WorkStatusModel.edmx</DependentUpon>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="AssignTask.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AssignTaskModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AssignTaskModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AssignTaskModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AssignTaskModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AssignTaskModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AssignTaskModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="complain.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ComplainModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ComplainModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ComplainModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ComplainModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ComplainModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ComplainModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="GeneralUser.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegNewModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RegNewModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RegNewModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RegNewModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RegNewModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RegNewModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="SAdminMyModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SAdminMyModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SAdminMyModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SAdminMyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SAdminMyModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SAdminMyModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="SocityAdmin.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TaskModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TaskModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TaskModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TaskModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TaskModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TaskModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="UserRegModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UserRegModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserRegModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UserRegModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserRegModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UserRegModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WorkersAdminModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WorkersAdminModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WorkersAdminModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WorkersAdminModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WorkersAdminModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WorkersAdminModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="WorkesAdmin.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WorkResult.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WorkStatusModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WorkStatusModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WorkStatusModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WorkStatusModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WorkStatusModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WorkStatusModel.edmx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
     <Content Include="packages.config" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <EntityDeploy Include="ComplainModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ComplainModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="ComplainModel.edmx.diagram">
+      <DependentUpon>ComplainModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\addcomplain.cshtml" />
+    <Content Include="scripts\jquery-1.10.2.min.map" />
+    <EntityDeploy Include="TaskModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>TaskModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="TaskModel.edmx.diagram">
+      <DependentUpon>TaskModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Views\Home\WorkUpdate.cshtml" />
+    <Content Include="Views\Home\User_Login_or_reg_page.cshtml" />
+    <EntityDeploy Include="UserRegModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>UserRegModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="UserRegModel.edmx.diagram">
+      <DependentUpon>UserRegModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Views\Home\General_User_reg.cshtml" />
+    <Content Include="Views\Home\Workstatuslist.cshtml" />
+    <Content Include="Views\Home\ComplainerLogin.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -110,9 +506,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
     <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

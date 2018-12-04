@@ -1,0 +1,50 @@
+﻿@model IEnumerable<DYC_project.AssignTask>
+
+@{
+    ViewBag.Title = "AssigningWorklist";
+}
+
+<h2>AssigningWorklist</h2>
+
+<p>
+    @Html.ActionLink("logout", "logout")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.WorkerName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WorkerPhoneNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ComplainId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ComplainDetails)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.WorkerName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WorkerPhoneNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ComplainId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ComplainDetails)
+        </td>
+        <td>
+            @Html.ActionLink("Work Status", "WorkUpdate", new { id=item.Id }) |
+           
+        </td>
+    </tr>
+}
+
+</table>
